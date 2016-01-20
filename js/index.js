@@ -5,8 +5,6 @@ analytics.ready(function () {
 
 if (localStorage.getItem('email') && localStorage.getItem('password')) {
   alert('already logged-in!')
-  analytics.track(
-    'home_authorized_redirect',
-    function () { window.location.href = '/profile' }
-  )
+  analytics.track('home_authorized_redirect')
+  window.location.href = '/profile'
 }

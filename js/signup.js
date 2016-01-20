@@ -1,9 +1,6 @@
 if (localStorage.getItem('email') && localStorage.getItem('password')) {
-  analytics.track(
-    'already_logged_in',
-    { user: localStorage.getItem('email') },
-    function () { window.location.href = '/profile' }
-  )
+  analytics.track('already_logged_in', { user: localStorage.getItem('email') })
+  window.location.href = '/profile'
 }
 
 function success (name, email, password) {
@@ -17,9 +14,9 @@ function success (name, email, password) {
   analytics.track('signup_successful', {
     name: name,
     email: email
-  }, function () {
-    window.location.href = '/profile'
   })
+
+  window.location.href = '/profile'
 }
 
 function failure (email) {
